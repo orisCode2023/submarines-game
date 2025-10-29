@@ -1,6 +1,4 @@
 import random
-from submarines.board import create_matrix
-
 
 def place_random_ships(ships: list[list[int]], number_of_ships: int):
     while number_of_ships > 0:
@@ -11,11 +9,11 @@ def place_random_ships(ships: list[list[int]], number_of_ships: int):
         else:
             ships[x][y] = 1
             number_of_ships -= 1
-    print(ships)
+    return ships
+
 
         
 
-place_random_ships(create_matrix(5), 3)
 
 
 

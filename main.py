@@ -1,11 +1,16 @@
-import pandas as pd
-def play(size: int = 6, n_ships: int = 6, max_shots: int = 10, *, one_based: bool = True):
-    return None 
- 
- 
-if __name__ == "__main__": 
-    # matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-    # df = pd.DataFrame(matrix)
-    # print(df)
-    pass
+from submarines.game import *
+from submarines.io import *
 
+def play(size: int = 6, n_ships: int = 6, max_shots: int = 20, *, one_based: bool = True):
+        game = init_game(size, n_ships, max_shots )
+        print(game)
+        while not is_won(game) and not is_lost(game):
+              cordinate_x, cordinate_y = one_shoot(game)
+              print(f"cordinate_x, {cordinate_x}")
+              print(f"cordinate_y, {cordinate_y} ")
+              round = shoot(game, cordinate_x, cordinate_y)
+              print(round)
+        print_end(is_won(game))
+        
+if __name__ == "__main__": 
+    play()
